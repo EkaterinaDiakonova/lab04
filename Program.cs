@@ -25,11 +25,14 @@ bool BZ = true;
 if ((age4 >= 14 && height1 >= 1.5)||BZ){Console.WriteLine("Можно кататься");}
 else {Console.WriteLine("Пока нельзя");}
 
-Console.WriteLine();
+Console.WriteLine("Самостоятельные задания");
 Console.Write("Введите целое число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num % 2 == 0){Console.WriteLine("Число четное");}
-else {Console.WriteLine("Число нечетное");}
+if (num % 2 == 0){
+    Console.WriteLine("Число четное");
+}else {
+    Console.WriteLine("Число нечетное");
+}
 
 Console.WriteLine();
 Console.Write("Введите оценку: ");
@@ -56,5 +59,8 @@ switch (num2){
 Console.WriteLine();
 Console.WriteLine("Индивидуальное задание, вариант 2");
 int age6 = 17;
-if (age6 >= 18){Console.WriteLine("Доступ разрешен");}
-else {Console.WriteLine("Доступ запрещен");}
+if (age6 >= 18){
+    Console.WriteLine("Доступ разрешен");
+}else{
+    Console.WriteLine("Доступ запрещен");
+}
