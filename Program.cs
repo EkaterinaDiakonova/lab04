@@ -56,11 +56,50 @@ switch (num2){
 
 }
 
-Console.WriteLine();
-Console.WriteLine("Индивидуальное задание, вариант 2");
-int age6 = 17;
-if (age6 >= 18){
-    Console.WriteLine("Доступ разрешен");
+Console.Write("Введите свою фамилию: ");
+string surname = Console.ReadLine()!.Trim();
+if (string.IsNullOrEmpty(surname)) {
+Console.WriteLine("Фамилия не введена. Завершение работы.");
+return;
+}
+Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+var assigned = Enumerable.Range(1, 10)
+.OrderBy(_ => rnd.Next())
+.Take(2)
+.OrderBy(x => x)
+.ToList();
+Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+Console.WriteLine("Задача 8");
+Console.Write("Введите год (целое число): ");
+int year = int.Parse(Console.ReadLine());
+if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+    Console.WriteLine("Год високосный, в феврале 29 дней");
 }else{
-    Console.WriteLine("Доступ запрещен");
+    Console.WriteLine("Год не високосный, в феврале 28 дней");
+}
+
+Console.WriteLine("Задача 9");
+Console.Write("Игрок 1, введите К (Камень), Н (Ножницы) или Б (Бумага): ");
+char player1 = char.Parse(Console.ReadLine());
+
+Console.Write("Игрок 2, введите К (Камень), Н (Ножницы) или Б (Бумага): ");
+char player2 = char.Parse(Console.ReadLine());
+
+if((player1 != 'К' && player1 != 'Н' && player1 != 'Б') || (player2 != 'К' && player2 != 'Н' && player2 != 'Б')){
+    Console.WriteLine("Ошибка ввода");
+}else if (player1 == player2){
+    Console.WriteLine("Ничья");
+}else{
+    switch (player1, player2){
+        case('К','Н'):
+        case('Н','Б'):
+        case('Б','К'):
+            Console.WriteLine("Победил игрок 1");
+            break;
+        default:
+            Console.WriteLine("Победил игрок 2");
+            break;
+
+    }
 }
